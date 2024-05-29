@@ -1,0 +1,189 @@
+1a 1b 2a 2b
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <style>
+        body{
+            background-color: beige;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+            font-weight: 400;
+        }
+        form{
+            
+            text-align: center;
+            width: 100%;
+            background-color: aqua;
+            font-size: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 200;
+        }
+        a{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Application Form</h1>
+    <form id="Student-form">
+        First Name:<input type="text" name="stud first name" size="40"/></br></br>
+        Last Name:<input type="text" name="stud last name" size="40"/></br></br>
+        Email:<input type="email" name="stud email" size="40"/></br></br>
+        Phone Number:<input type="tel" name="stud phone number" size="40"/></br></br>
+        Date of Birth:<input type="date" name="stud date of birth"/></br></br>
+        <button type="submit">Login</button></br></br>
+    </form></br></br></br></br>
+    <h1>Hyperlink to go to google</h1>
+    <a href="https://www.google.com/" >Go to google</a>
+    </br></br></br></br>
+    <h1>For text box and text area</h1>
+    <form>
+        Textbox:<input type="text",name="textbox",id="textbox",placeholder="Enter text here "></br></br>
+        Textarea:<textarea id="multilinetxt" name="multilinetxt"  rows="5" cols="50">Enter text here</textarea>
+    </form>
+</br></br></br></br>
+</body>
+</html>
+
+
+
+
+
+3 function,loops,array
+function tsum(arr){
+    let sum=0;
+    for (let i=0;i<arr.length;i++){
+        sum+=arr[i];
+    }
+    return sum;
+}
+const arr=[1,2,3,4,5];
+console.log("array is:",arr);
+const sum=tsum(arr);
+console.log("sum is:",sum);
+
+function nums(){
+    for (let i=0;i<10;i++){
+        console.log(i);
+    }
+}
+nums()
+
+let i=0;
+do{
+    console.log(i);
+    i++;
+}while (i<15);
+
+
+
+
+
+4a mouse click
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left and Right Click</title>
+</head>
+<body>
+    <h1>Handle mouse click</h1>
+    <button class="button">CLICK ME!</button>
+    <script>
+        function handleLeftClick(event){
+            console.log("left button clicked!");
+        }
+        function handleRightClick(event){
+            console.log("right button clicked!");
+            event.preventDefault();
+        }
+        document.addEventListener('click',function(event){
+            if (event.button===0){
+                handleLeftClick(event);
+            }
+        })
+        document.addEventListener('contextmenu',handleRightClick);
+    </script>
+</body>
+</html>
+
+
+
+
+
+4b scroll
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left and Right Click</title>
+</head>
+<body>
+    <h1>Handle mouse scroll</h1>
+    
+    <script>
+        function scrollHandler(event){
+            if (event.deltaY<0){
+                console.log("scroll up");
+            }
+            else if (event.deltaY>0){
+                console.log("scroll down");
+            }
+        }
+        document.addEventListener('wheel',scrollHandler)
+    </script>
+</body>
+</html>
+
+
+
+
+5 regex
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student login</title>
+</head>
+<body>
+    <h1>Student login page</h1>
+    <form id="loginForm">
+        Username: <input type="text" id="username" name="username" required></br></br>
+    
+        Password: <input type="password" id="password" name="password" required></br></br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit',function(event){
+            event.preventDefault()
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const usernameRegex=/^[a-zA-Z0-9_-].{6,20}/;
+            const passwordRegex=/^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,20}/;
+
+            if (!usernameRegex.test(username)){
+                alert("unsername invalid");
+                return;
+            }
+            if (!passwordRegex.test(password)){
+                alert("invalid password");
+                return;
+            }
+            alert ("login successful");
+        })
+    </script>
+</body>
+</html>
+
+
